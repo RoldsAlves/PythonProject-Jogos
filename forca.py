@@ -18,9 +18,9 @@ def jogar():
             letras_acertadas = marca_chute_correto(palavra_secreta, chute, letras_acertadas)
         else:
             erros += 1
-            print("voce errou {} de 6".format(erros))
+            desenha_forca(erros)
+            dica(erros)
         enforcou = erros == 6
-
         acertou = "_" not in letras_acertadas
         print(letras_acertadas)
     if acertou:
@@ -28,6 +28,57 @@ def jogar():
     else:
         imprime_enforcado(palavra_secreta)
     print("Fim do jogo.")
+
+
+def dica(erros):
+    if erros == 3:
+        print("Dica: A palavra é o nome de uma fruta.")
+
+
+def desenha_forca(erros):
+    print("voce errou {} de 6".format(erros))
+    print("  _______     ")
+    print(" |/      |    ")
+
+    if erros == 1:
+        print(" |      (_)   ")
+        print(" |            ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 2:
+        print(" |      (_)   ")
+        print(" |       |    ")
+        print(" |       |    ")
+        print(" |            ")
+
+    if erros == 3:
+        print(" |      (_)   ")
+        print(" |      \|    ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 4:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |            ")
+        print(" |            ")
+
+    if erros == 5:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      /     ")
+
+    if erros == 6:
+        print(" |      (_)   ")
+        print(" |      \|/   ")
+        print(" |       |    ")
+        print(" |      / \   ")
+
+    print(" |            ")
+    print("_|___         ")
+    print()
 
 
 def imprime_vencedor():
@@ -42,6 +93,8 @@ def imprime_vencedor():
     print("           ) (          ")
     print("         _.' '._        ")
     print("        '-------'       ")
+
+
 def imprime_enforcado(palavra_secreta):
     print("Puxa, você foi enforcado!")
     print("A palavra era {}".format(palavra_secreta))
